@@ -112,6 +112,6 @@ againBtn.addEventListener('click', function () {
     score = scoreState;
     changeNumber(numberState);
     changeMessage(messageState);
-    document.querySelector('.guess').value = 0;
+    document.querySelector('.guess').value = '';
 
 });
