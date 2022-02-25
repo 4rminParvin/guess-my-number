@@ -47,7 +47,35 @@ const changeHighScore = function (val) {
 checkBtn.addEventListener('click', function () {
     let guess = Number(document.querySelector('.guess').value);
 
-    // Winning
+    // Losing
+    if (score <= 1) {
+        score = 0;
+        changeScore(score);
+        message = 'YOU LOST!';
+        changeMessage(message);
+        return;
+    }    
+    
+    // Check for number validity
+    if (guess > 100 || guess <= 0) {
+        message = 'You must enter a VALID number!';
+        changeMessage(message);
+        return;
+    }
+
+    // Decrease the score, but do not go below zero
+    if (score > 0 && guess && guess <= 100 && guess >= 1) {
+        score--;
+        changeScore(score);
+    }
+
+    // Check for number input
+    if (!guess) {
+        message = 'You must enter a number!';
+        changeMessage(message);
+        return;
+    }
+
     if (guess === secretNum) {
         message = 'YOU WON';
         changeMessage(message);
@@ -58,12 +86,7 @@ checkBtn.addEventListener('click', function () {
         }
     
     // Wrong guess
-    } else if (guess != secretNum) {
-        // Decrease the score, but do not go below zero
-        if (score > 0) {
-            score--;
-            changeScore(score);
-        }
+    } else if (guess !== secretNum) {
 
         if (guess > (secretNum + 25)) {
             message = 'TOO HIGH!';
@@ -80,24 +103,6 @@ checkBtn.addEventListener('click', function () {
         }
     }
 
-
-    // Losing
-    if (score < 1) {
-        message = 'YOU LOST!';
-        changeMessage(message);
-    }
-
-    // Check for number validity
-    if (guess > 100 || guess < 1) {
-        message = 'You must input a VALID number!';
-        changeMessage(message);
-    }
-
-    // Check for number input
-    if (!guess) {
-        message = 'You must input a number!';
-        changeMessage(message);
-    }
 });
 
 // Again button
