@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess My Number</title>
+
+        <!-- IM Fell English SC -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+        <!-- Arbutus font -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arbutus&display=swap" rel="stylesheet">
+
+        <!-- UnifrakturMaguntia font -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+        <!-- MedievalSharp font -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./Styles/normalize.css" />
+        <link rel="stylesheet" href="./Styles/styles.css" />
+    </head>
+
+    <body>
+        <div class="flex-wrapper">
+            <header>
+                <h1>Guess My Number</h1>
+                <button class="again btn">Again</button>
+                <h2>(SOMEWHERE BETWEEN 1 & 100)</h2>
+            </header>
+
+            <main>
+                <span class="number">?</span>
+                
+                <span class="message">Start guessing! RIGHT NOW!</span>
+                <div class="grid">
+                    <div class="scores">
+                        <p>Score: <span class="score">20</span></p>
+                        <p>Highscore: <span class="highscore">0</span></p>
+                    </div>
+                    <form>
+                        <input
+                            type="number"
+                            name="guess"
+                            class="guess"
+                            id="guess"
+                            
+                        />
+                        <input
+                            type="button"
+                            name="check"
+                            class="check btn"
+                            id="check"
+                            value="CHECK!"
+                        />
+                    </form>
+                </div>
+            </main>
+
+            <footer>
+                <span>Armin Parvin</span>
+            </footer>
+        </div>
+
+        <script src="./JS/script.js"></script>
+    </body>
+</html>
