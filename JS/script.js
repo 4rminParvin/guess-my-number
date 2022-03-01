@@ -10,6 +10,7 @@ let numberEl = document.querySelector('.number');
 let scoreEl = document.querySelector('.score');
 let messageEl = document.querySelector('.message');
 let highScoreEl = document.querySelector('.highscore');
+let playing = true;
 
 // State variables
 const scoreState = 20;
@@ -44,7 +45,7 @@ const changeHighScore = function (val) {
 }
 
 // Game logic
-checkBtn.addEventListener('click', function () {
+const main = function () {
     let guess = Number(document.querySelector('.guess').value);
 
     // Losing
@@ -76,6 +77,7 @@ checkBtn.addEventListener('click', function () {
         return;
     }
 
+    //Winning
     if (guess === secretNum) {
         message = 'YOU WON';
         changeMessage(message);
@@ -84,7 +86,8 @@ checkBtn.addEventListener('click', function () {
             highScore = score;
             changeHighScore(highScore);
         }
-    
+        playing = false;
+
     // Wrong guess
     } else if (guess !== secretNum) {
 
@@ -102,16 +105,28 @@ checkBtn.addEventListener('click', function () {
             changeMessage(message);
         }
     }
+}
 
+
+checkBtn.addEventListener('click', function () {
+    if (playing) {
+        main();
+    }
 });
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && playing) {
+        main();
+    }
+})
 
 // Again button
 againBtn.addEventListener('click', function () {
+    playing = true;
     secretNum = Math.trunc(Math.random() * 100) + 1;
     changeScore(scoreState);
     score = scoreState;
     changeNumber(numberState);
     changeMessage(messageState);
     document.querySelector('.guess').value = '';
-
 });
